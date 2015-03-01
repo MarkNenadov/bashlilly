@@ -16,10 +16,6 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
 
-# safe_move - Move a file with a "do no harm" strategy
-# - example: safe_move from_file to_file
-# - return: "true" or "false"
-
 function exists() {
 	local thisFile="$1"
 
