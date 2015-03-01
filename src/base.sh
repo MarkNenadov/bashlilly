@@ -15,37 +15,3 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
-function run_where_available() {
-        if [ ! $# -eq 1 ]; then
-                echo "Must provide 1 argument (the command)"
-                return 1
-        fi
-
-        cmd="$1"
-        if exists /bin/$cmd; then
-                echo "executing in /bin"
-                return 0
-        fi
-
-        if exists /usr/bin/$cmd; then
-                /usr/bin/$cmd
-                return 0
-        fi
-
-        if exists /usr/local/bin/$cmd; then
-                /usr/local/bin/$cmd
-                return 0
-        fi
-
-        return 1
-}
-
-function run_if_exists() {
-	echo
-	# write me
-}
-
-function run_if_file_exists() {
-	echo
-	#write me
-}

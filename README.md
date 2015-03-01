@@ -63,7 +63,24 @@ fi
 
 ---
 
-exec_where_available
+backup
+
+-> backup a file (file.bak or file.bak.{timestamp} if it already exists)
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+backup /home/joe/test.xml
+
+```
+
+---
+
+run_where_available
 
 -> attempt to execute a command first in /bin/, then /usr/bin/, then /usr/local/bin/ (avoiding path settings)
 
@@ -78,3 +95,15 @@ if exec_where_available vi; then
 	echo "we found vi somewhere in /bin, /usr/bin/ or /usr/local/bin and ran it"
 fi
 ```
+
+---
+
+run_if_exists
+
+-> future implementation
+
+---
+
+run_if_file_exists
+
+-> future implementation

@@ -15,8 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
-
 function exists() {
+        if [ ! $# -eq 1 ]; then
+                echo "Must provide 1 argument (the file to check)"
+                return 1
+        fi
+
 	local thisFile="$1"
 
 	if [ -f "$thisFile" ]; then
@@ -27,6 +31,11 @@ function exists() {
 }
 
 function this_exists_but_not_that() {
+        if [ ! $# -eq 2 ]; then
+                echo "Must provide 2 arguments (this file, that file)"
+                return 1
+        fi
+
 	local thisFile="$1"
 	local thatFile="$2"
 
@@ -40,6 +49,12 @@ function this_exists_but_not_that() {
 }
 
 function safe_move() {
+        if [ ! $# -eq 2 ]; then
+                echo "Must provide 2 arguments (from file, to file)"
+                return 1
+        fi
+	
+
 	local fromFile="$1"
 	local toFile="$2"
 
@@ -52,4 +67,21 @@ function safe_move() {
 	fi
 
 	return 1
+}
+
+function backup() {
+	if [ ! $# -eq 1 ]; then 
+		echo "Must provide 1 argument (the file to backup)"
+		return 1
+	fi
+
+	local fileToBackup="$1"
+	local backupFile="$fileToBackup.bak"
+	if exists $fileToBackup; then
+		if exists $backupFile; then
+			local timestamp=$( date +%s )
+			backupFile=${backupFile}.$timestamp
+		fi
+		/bin/cp $fileToBackup $backupFile
+	fi
 }

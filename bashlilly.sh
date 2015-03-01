@@ -18,5 +18,6 @@
 
 BASHLILLY_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+source "${BASHLILLY_DIR}/src/base.sh"
 source "${BASHLILLY_DIR}/src/exec.sh"
 source "${BASHLILLY_DIR}/src/files.sh"
