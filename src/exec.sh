@@ -15,8 +15,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+function exec_where_available() {
+        cmd="$1"
+        if exists /bin/$cmd; then
+                echo "executing in /bin"
+                return 0
+        fi
 
-BASHLILLY_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+        if exists /usr/bin/$cmd; then
+                /usr/bin/$cmd
+                return 0
+        fi
 
-source "${BASHLILLY_DIR}/src/exec.sh"
-source "${BASHLILLY_DIR}/src/files.sh"
+        if exists /usr/local/bin/$cmd; then
+                /usr/local/bin/$cmd
+                return 0
+        fi
+
+        return 1
+}
+
