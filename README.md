@@ -13,7 +13,7 @@ Functions
 
 exists
 
--> does a (regular) file exist?
+-> does a (regular) file exist?  (returns 0 if true, 1 otherwise)
 
 Sample Script:
 
@@ -32,7 +32,7 @@ fi
 
 this_exists_but_not_that
 
--> does a (regular) file exist and another (regular) file not exist?
+-> does a (regular) file exist and another (regular) file not exist?  (returns 0 if true, 1 otherwise)
 
 Sample Script:
 
@@ -49,8 +49,7 @@ fi
 ---
 
 safe_move 
--> A "do no harm" move function which returns "true" if the move occurred or "false" if it didn't
-
+-> A "do no harm" move function (returns 0 if the file was moved, 1 otherwise)
 Sample Script:
 
 ```
