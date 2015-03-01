@@ -27,7 +27,6 @@ if exists /home/bob/user_list.txt; then
 fi
 ```
 
-
 ---
 
 this_exists_but_not_that
@@ -59,5 +58,23 @@ source "/usr/local/bashlilly/bashlilly.sh"
 
 if safe_move /home/bob/user_list.txt /home/bob/user_list.txt.old; then
 	echo "yay. we moved the file"
+fi
+```
+
+---
+
+exec_where_available
+
+-> attempt to execute a command first in /bin/, then /usr/bin/, then /usr/local/bin/ (avoiding path settings)
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+if exec_where_available vi; then
+	echo "we found vi somewhere in /bin, /usr/bin/ or /usr/local/bin and ran it"
 fi
 ```
