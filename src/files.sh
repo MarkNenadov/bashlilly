@@ -20,19 +20,38 @@
 # - example: safe_move from_file to_file
 # - return: "true" or "false"
 
+function exists() {
+	local thisFile="$1"
+
+	if [ -f "$thisFile" ]; then
+		return 0
+	fi
+
+	return 1
+}
+
+function this_exists_but_not_that() {
+	local thisFile="$1"
+	local thatFile="$2"
+
+	if exists $thisFile; then
+		if ! exists $thatFile; then
+			return 0
+		fi
+	fi
+
+	return 1
+}
+
 function safe_move() {
 	local fromFile="$1"
 	local toFile="$2"
 
-	if [ -f "$fromFile" ]; then
-		if [ ! -f "$toFile" ]; then
-			mv ${fromFile} ${toFile}
+	if this_exists_but_not_that $fromFile $toFile; then
+		mv ${fromFile} ${toFile}
 	
-			if [ ! -f "$fromFile" ]; then
-				if [ -f  "$toFile" ]; then
-					return 0
-				fi
-			fi
+		if this_exists_but_not_that $toFile $fromFile; then
+			return 0
 		fi
 	fi
 
