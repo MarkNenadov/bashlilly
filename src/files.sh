@@ -20,21 +20,21 @@
 # - example: safe_move from_file to_file
 # - return: "true" or "false"
 
-ERROR=1
-OK=0
-
 function safe_move() {
-        local result=${ERROR}
-        local fromFile="$1"
-        local toFile="$2"
+	local fromFile="$1"
+	local toFile="$2"
 
-        if [ -e "$fromFile" ] && ! [ -e "$toFile" ]; then
-        	mv ${fromFile} ${toFile}
-		
-		if ! [ -e "$fromFile" ] && [ -e "$toFile" ]; then
-                        result=${OK}
-                fi
-        fi
+	if [ -f "$fromFile" ]; then
+		if [ ! -f "$toFile" ]; then
+			mv ${fromFile} ${toFile}
+	
+			if [ ! -f "$fromFile" ]; then
+				if [ -f  "$toFile" ]; then
+					return 0
+				fi
+			fi
+		fi
+	fi
 
-        echo ${result}
+	return 1
 }
