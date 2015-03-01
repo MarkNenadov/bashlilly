@@ -21,5 +21,7 @@ Sample Script:
 
 source "/usr/local/bashlilly/bashlilly.sh"
 
-safe_move /home/bob/user_list.txt /home/bob/user_list.txt.old
+if safe_move /home/bob/user_list.txt /home/bob/user_list.txt.old; then
+	echo "yay. we moved the file"
+fi
 ```
