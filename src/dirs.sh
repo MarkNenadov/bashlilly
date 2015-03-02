@@ -15,11 +15,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+function dir_exists() {
+        if [ ! $# -eq 1 ]; then
+		wrong_parameter_message 1 "the dir to check"
+                return 1
+        fi
 
-BASHLILLY_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+	local thisDir="$1"
 
-source "${BASHLILLY_DIR}/src/base.sh"
-source "${BASHLILLY_DIR}/src/loop.sh"
-source "${BASHLILLY_DIR}/src/exec.sh"
-source "${BASHLILLY_DIR}/src/dirs.sh"
-source "${BASHLILLY_DIR}/src/files.sh"
+	if [ -d "$thisDir" ]; then
+		return 0
+	fi
+
+	return 1
+}
+

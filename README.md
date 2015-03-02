@@ -78,6 +78,27 @@ backup /home/joe/test.xml
 
 ```
 
+
+---
+
+append
+
+-> append the contents of one file to another (checks existence of from file and checks writable status of to file)
+-> returns 0 for success / 1 for fail
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+if append /home/mark/from.txt /home/mark/to.txt; then
+	echo "successfully appended from.txt to to.txt"
+fi
+
+```
+
 ---
 
 run_where_available
@@ -100,10 +121,79 @@ fi
 
 run_if_exists
 
--> future implementation
+-> run a command if it exists as a file
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+run_if_exists /usr/bin/lala
+```
 
 ---
 
 run_if_file_exists
 
--> future implementation
+-> run a command if another file exists
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+run_if_file_exists /usr/local/bin/send-package /home/mark/package.pkg
+```
+
+---
+
+run_if_file_not_exists
+
+-> run a command if another file doesn't exist
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+run_if_file_not_exists /usr/local/bin/sourcegen /home/mark/source.src
+```
+
+---
+
+loop
+
+-> loop a command x times
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+loop whoami 7
+```
+
+---
+
+loop_with_delay
+
+-> loop a command x times with a y second delay between
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+# run whoami seven times with a five second delay between
+loop whoami 7 5
+```

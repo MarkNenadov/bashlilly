@@ -17,7 +17,7 @@
 
 function exists() {
         if [ ! $# -eq 1 ]; then
-                echo "Must provide 1 argument (the file to check)"
+		wrong_parameter_message 1 "the file to check"
                 return 1
         fi
 
@@ -32,7 +32,7 @@ function exists() {
 
 function this_exists_but_not_that() {
         if [ ! $# -eq 2 ]; then
-                echo "Must provide 2 arguments (this file, that file)"
+   		wrong_parameter_message 2 "this file, that file"
                 return 1
         fi
 
@@ -50,7 +50,7 @@ function this_exists_but_not_that() {
 
 function safe_move() {
         if [ ! $# -eq 2 ]; then
-                echo "Must provide 2 arguments (from file, to file)"
+                wrong_parameter_message 2 "from file, to file"
                 return 1
         fi
 	
@@ -71,7 +71,7 @@ function safe_move() {
 
 function backup() {
 	if [ ! $# -eq 1 ]; then 
-		echo "Must provide 1 argument (the file to backup)"
+		wrong_parameter_message 1 "the file to backup"
 		return 1
 	fi
 
@@ -85,3 +85,20 @@ function backup() {
 		/bin/cp $fileToBackup $backupFile
 	fi
 }
+
+function append() {
+	if [ ! $# -eq 2 ]; then
+		wrong_parameter_message 2 "the file to append from, the file to append to"
+	fi
+
+	local appendFrom="$1"
+	local appendTo="$2"
+
+	if [ -w "$appendTo" ]; then
+		cat $appendFrom >> ${appendTo}
+		return 0
+	fi
+
+	return 1
+}
+

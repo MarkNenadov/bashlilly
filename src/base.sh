@@ -15,3 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+function wrong_parameter_message() {
+	local count="$1"
+	local description="$2"
+	
+	echo "Must provide $count argument(s) ($description)"
+}

@@ -15,11 +15,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+function loop() {
+	if [ ! $# -eq 2 ]; then
+		wrong_parameter_message 2 "the command, loop count"
+	fi
 
-BASHLILLY_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+	local cmd="$1"
+	local loopCount=$2
 
-source "${BASHLILLY_DIR}/src/base.sh"
-source "${BASHLILLY_DIR}/src/loop.sh"
-source "${BASHLILLY_DIR}/src/exec.sh"
-source "${BASHLILLY_DIR}/src/dirs.sh"
-source "${BASHLILLY_DIR}/src/files.sh"
+	for i in $(seq 1 $loopCount)
+	do
+		${cmd}
+	done
+}
+
+function loop_with_delay() {
+	if [ ! $# -eq 3 ]; then
+		wrong_parameter_message 3 "the command, loop count, delay"
+	fi
+
+	local cmd="$1"
+	local loopCount=$2
+	local delay=$3
+
+	for i in $(seq 1 $loopCount)
+	do
+		$cmd
+		sleep $delay
+	done
+}

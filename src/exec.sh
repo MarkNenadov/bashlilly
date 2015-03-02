@@ -17,11 +17,11 @@
 
 function run_where_available() {
         if [ ! $# -eq 1 ]; then
-                echo "Must provide 1 argument (the command)"
+                wrong_parameter_message 1 "the command"
                 return 1
         fi
 
-        cmd="$1"
+        local cmd="$1"
         if exists /bin/$cmd; then
                 echo "executing in /bin"
                 return 0
@@ -41,11 +41,54 @@ function run_where_available() {
 }
 
 function run_if_exists() {
-	echo
-	# write me
+	if [ ! $# -eq 1 ]; then
+                wrong_parameter_message 1 "the command"
+                return 1
+        fi
+
+	local cmd="$1"
+
+	if exists $cmd; then
+		${cmd}
+		return 0
+	fi
+
+	return 1
+
 }
 
 function run_if_file_exists() {
-	echo
-	#write me
+        if [ ! $# -eq 2 ]; then
+                wrong_parameter_message 1 "the command, the file to check for"
+                return 1
+        fi
+
+        local cmd="$1"
+	local fileToCheckFor="$2"
+
+        if exists $fileToCheckFor; then
+                ${cmd}
+                return 0
+        fi
+
+        return 1
+
 }
+
+function run_if_file_not_exists() {
+        if [ ! $# -eq 2 ]; then
+                wrong_parameter_message 1 "the command, the file to check for"
+                return 1
+        fi
+
+        local cmd="$1"
+        local fileToCheckFor="$2"
+
+        if ! exists $fileToCheckFor; then
+                ${cmd}
+                return 0
+        fi
+
+        return 1
+}
+
