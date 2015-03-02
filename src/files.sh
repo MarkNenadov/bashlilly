@@ -78,9 +78,11 @@ function equivalent() {
 	local file1="$1"
 	local file2="$2"
 
-	cmp -s $file1 $file2
+	if diff $file1 $file2 > /dev/null; then
+		return 0
+	fi
 
-	return $?
+	return 1
 }
 
 function copy_in_dir() {
@@ -93,11 +95,11 @@ function copy_in_dir() {
 	local fromFile="$2"
 	local toFile="$3"
 
-	if exists "$fromFile"; then
-		if dir_exists "$prefix"; then
+	if dir_exists "$prefix"; then
+		if exists "$prefix/$fromFile"; then
 			/bin/cp $prefix/$fromFile $prefix/$toFile
 			if equivalent $prefix/$fromFile $prefix/$toFile; then
-				return 1
+				return 0
 			fi
 		fi
 	fi
