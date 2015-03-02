@@ -1,6 +1,19 @@
 # bashlilly
 A Bash scripting function library by Mark Nenadov (2015) - marknenadov@gmail.com
 
+Installation
+------------
+
+There are two install scripts, one which installs from local files (install.sh), the other which grabs the master from github (install-from-github.sh).
+
+Both methods install to /usr/local/lib/bashlilly (if /usr/local/lib exists) or /usr/lib/bashlilly (if /usr/lib/ exists) or /bashlilly
+
+'./install.sh'
+
+or
+
+'./install-from-github.sh'
+
 Usage
 -----
 
