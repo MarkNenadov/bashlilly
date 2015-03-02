@@ -8,11 +8,11 @@ There are two install scripts, one which installs from local files (install.sh),
 
 Both methods install to /usr/local/lib/bashlilly (if /usr/local/lib exists) or /usr/lib/bashlilly (if /usr/lib/ exists) or /bashlilly
 
-'./install.sh'
+`./install.sh`
 
 or
 
-'./install-from-github.sh'
+`./install-from-github.sh`
 
 Usage
 -----
