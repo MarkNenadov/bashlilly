@@ -30,3 +30,23 @@ function dir_exists() {
 	return 1
 }
 
+function recreate_dir() {
+	if [ ! $# -eq 1 ]; then
+		wrong_parameter_message 1 "the dir to recreate"
+		return 1
+	fi
+
+	local thisDir="$1"
+
+	if dir_exists "$thisDir"; then
+		rm -rf $thisDir
+		mkdir $thisDir
+
+		if dir_exists "$thisDir"; then
+			return 0
+		fi
+	fi
+
+	return 1
+}
+

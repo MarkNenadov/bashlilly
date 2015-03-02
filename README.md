@@ -76,6 +76,23 @@ fi
 
 ---
 
+copy_in_dir 
+-> Copy a file from and to a dir (apply dir prefix to both from and to)
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+if copy_in_dir /home/bob/ test1.txt test2.txt then
+	echo "yay. we copied a file within /home/bob/"
+fi
+```
+
+---
+
 backup
 
 -> backup a file (file.bak or file.bak.{timestamp} if it already exists)

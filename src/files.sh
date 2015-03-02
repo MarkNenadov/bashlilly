@@ -69,6 +69,42 @@ function safe_move() {
 	return 1
 }
 
+function equivalent() {
+	if [ ! $# -eq 2 ]; then
+		wrong_parameter_message 2 "file 1, file 2"
+		return 1
+	fi
+
+	local file1="$1"
+	local file2="$2"
+
+	cmp -s $file1 $file2
+
+	return $?
+}
+
+function copy_in_dir() {
+	if [ ! $# -eq 3 ]; then
+		wrong_parameter_message 3 "prefix, from file, to file"
+		return 1
+	fi
+
+	local prefix="$1"
+	local fromFile="$2"
+	local toFile="$3"
+
+	if exists "$fromFile"; then
+		if dir_exists "$prefix"; then
+			/bin/cp $prefix/$fromFile $prefix/$toFile
+			if equivalent $prefix/$fromFile $prefix/$toFile; then
+				return 1
+			fi
+		fi
+	fi
+
+	return 1
+}
+
 function backup() {
 	if [ ! $# -eq 1 ]; then 
 		wrong_parameter_message 1 "the file to backup"
