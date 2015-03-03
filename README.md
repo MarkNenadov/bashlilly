@@ -31,8 +31,6 @@ exists
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if exists /home/bob/user_list.txt; then
@@ -49,8 +47,6 @@ this_exists_but_not_that
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if this_exists_but_not_that /tmp/1 /tmp/2; then
@@ -65,8 +61,6 @@ safe_move
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if safe_move /home/bob/user_list.txt /home/bob/user_list.txt.old; then
@@ -82,8 +76,6 @@ equivalent
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if equivalent file1.txt file2.txt; then
@@ -98,8 +90,6 @@ copy_in_dir
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if copy_in_dir /home/bob/ test1.txt test2.txt; then
@@ -114,8 +104,6 @@ backup
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 backup /home/joe/test.xml
@@ -130,8 +118,6 @@ append
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if append /home/mark/from.txt /home/mark/to.txt; then
@@ -147,8 +133,6 @@ run_where_available
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if exec_where_available vi; then
@@ -163,8 +147,6 @@ run_if_exists
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 run_if_exists /usr/bin/lala
@@ -177,8 +159,6 @@ run_if_file_exists
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 run_if_file_exists /usr/local/bin/send-package /home/mark/package.pkg
@@ -191,8 +171,6 @@ run_if_file_not_exists
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 run_if_file_not_exists /usr/local/bin/sourcegen /home/mark/source.src
@@ -205,8 +183,6 @@ loop
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 loop whoami 7
@@ -219,8 +195,6 @@ loop_with_delay
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 # run whoami seven times with a five second delay between
@@ -234,8 +208,6 @@ dir_exists
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 if dir_exists /home/mark/myfolder; then
@@ -251,8 +223,6 @@ recreate_dir
 Sample Script:
 
 ```
-#!/bin/bash
-
 source "/usr/local/bashlilly/bashlilly.sh"
 
 recreate_dir /home/jill
