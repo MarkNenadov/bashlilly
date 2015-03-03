@@ -76,6 +76,22 @@ fi
 
 ---
 
+equivalent 
+-> are the contents of two files equivalent?
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+if equivalent file1.txt file2.txt; then
+	echo "yay. we the contents of the two files match"
+fi
+
+---
+
 copy_in_dir 
 -> Copy a file from and to a dir (apply dir prefix to both from and to)
 
@@ -86,7 +102,7 @@ Sample Script:
 
 source "/usr/local/bashlilly/bashlilly.sh"
 
-if copy_in_dir /home/bob/ test1.txt test2.txt then
+if copy_in_dir /home/bob/ test1.txt test2.txt; then
 	echo "yay. we copied a file within /home/bob/"
 fi
 ```
@@ -226,4 +242,40 @@ source "/usr/local/bashlilly/bashlilly.sh"
 
 # run whoami seven times with a five second delay between
 loop whoami 7 5
+```
+
+---
+
+dir_exists
+
+-> does a directory exist?
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+if dir_exists /home/mark/myfolder; then
+	echo "yup. it is there"
+fi
+
+```
+
+---
+
+recreate_dir
+
+-> delete a dir and then make an empty one in its place
+
+Sample Script:
+
+```
+#!/bin/bash
+
+source "/usr/local/bashlilly/bashlilly.sh"
+
+recreate_dir /home/jill
+
 ```
