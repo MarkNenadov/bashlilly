@@ -21,8 +21,8 @@ To include bashlilly in a script, do the following:
 
 `source "/path/to/bashlilly.sh"`
 
-Functions
----------
+File Functions
+--------------
 
 exists
 
@@ -126,6 +126,9 @@ fi
 
 ```
 
+Execution Functions
+-------------------
+
 run_where_available
 
 -> attempt to execute a command first in /bin/, then /usr/bin/, then /usr/local/bin/ (avoiding path settings)
@@ -140,6 +143,8 @@ if exec_where_available vi; then
 fi
 ```
 
+---
+
 run_if_exists
 
 -> run a command if it exists as a file
@@ -151,6 +156,8 @@ source "/usr/local/bashlilly/bashlilly.sh"
 
 run_if_exists /usr/bin/lala
 ```
+
+---
 
 run_if_file_exists
 
@@ -164,6 +171,8 @@ source "/usr/local/bashlilly/bashlilly.sh"
 run_if_file_exists /usr/local/bin/send-package /home/mark/package.pkg
 ```
 
+---
+
 run_if_file_not_exists
 
 -> run a command if another file doesn't exist
@@ -175,6 +184,9 @@ source "/usr/local/bashlilly/bashlilly.sh"
 
 run_if_file_not_exists /usr/local/bin/sourcegen /home/mark/source.src
 ```
+
+Looping Functions
+-------------------
 
 loop
 
@@ -188,6 +200,8 @@ source "/usr/local/bashlilly/bashlilly.sh"
 loop whoami 7
 ```
 
+---
+
 loop_with_delay
 
 -> loop a command x times with a y second delay between
@@ -200,6 +214,9 @@ source "/usr/local/bashlilly/bashlilly.sh"
 # run whoami seven times with a five second delay between
 loop whoami 7 5
 ```
+
+Directory Functions
+-------------------
 
 dir_exists
 
@@ -215,6 +232,8 @@ if dir_exists /home/mark/myfolder; then
 fi
 
 ```
+
+----
 
 recreate_dir
 
