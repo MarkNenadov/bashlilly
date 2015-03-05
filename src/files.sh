@@ -15,6 +15,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+#~File Functions
+#~--------------
+#~
+#~exists
+#~
+#~-> does a (regular) file exist?  (returns 0 if true, 1 otherwise)
+#~
+#~Sample Script:
+#~
+#~```
+#~source "/usr/local/bashlilly/bashlilly.sh"
+#~
+#~if exists /home/bob/user_list.txt; then
+#~	echo "yup"
+#~fi
+#~```
+#~
+#~---
+
 function exists() {
         if [ ! $# -eq 1 ]; then
 		wrong_parameter_message 1 "the file to check"
