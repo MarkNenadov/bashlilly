@@ -23,6 +23,9 @@ cp $BASHLILLY_DIR/README.md $INSTALL_DIR
 cp $BASHLILLY_DIR/LICENSE $INSTALL_DIR
 
 mkdir $INSTALL_DIR/src
-cp $BASHLILLY_DIR/src/* $INSTALL_DIR/src/
+mkdir $INSTALL_DIR/docs
+
+cp $BASHLILLY_DIR/src/*.sh $INSTALL_DIR/src/
+cp $BASHLILLY_DIR/docs/*.md $INSTALL_DIR/docs/
 
 echo "bashlilly has been installed to $INSTALL_DIR"
