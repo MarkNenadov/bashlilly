@@ -8,4 +8,4 @@ else
 	mkdir docs
 fi
 
-cat src/files.sh|grep "#~" > docs/file_functions.md
+cat src/files.sh|grep "#~"|sed 's/#~//g'  > docs/file_functions.md
