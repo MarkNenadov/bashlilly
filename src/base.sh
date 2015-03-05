@@ -15,6 +15,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+###Base Functions
+###--------------
+###
+###wrong_parameter_message( count description )
+###
+###-> Indicate that the wrong number of parameters have been provided to a function
+###
+###Sample Script:
+###
+###```
+###function test() {
+###        if [ ! $# -eq 2 ]; then
+###                wrong_parameter_message 2 "from file, to file"
+###                return 1
+###        fi
+###}
+###```
+
 function wrong_parameter_message() {
 	local count="$1"
 	local description="$2"

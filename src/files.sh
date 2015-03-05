@@ -14,32 +14,30 @@
 # GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
-
-#~File Functions
-#~--------------
-#~
-#~exists( fileToCheck )
-#~
-#~-> does a (regular) file exist?  (returns 0 if true, 1 otherwise)
-#~
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~if exists /home/bob/user_list.txt; then
-#~	echo "yup"
-#~fi
-#~```
-#~
-#~---
-
+#
+###File Functions
+###--------------
+###
+###exists( fileToCheck )
+###
+###-> does a (regular) file exist?  (returns 0 if true, 1 otherwise)
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if exists /home/bob/user_list.txt; then
+###	echo "yup"
+###fi
+###```
+###
+###---
 function exists() {
-        if [ ! $# -eq 1 ]; then
+	if [ ! $# -eq 1 ]; then
 		wrong_parameter_message 1 "the file to check"
                 return 1
         fi
-
 	local thisFile="$1"
 
 	if [ -f "$thisFile" ]; then
@@ -49,22 +47,21 @@ function exists() {
 	return 1
 }
 
-
-#~this_exists_but_not_that( thisFile thatFile )
-#~
-#~-> does a (regular) file exist and another (regular) file not exist?  (returns 0 if true, 1 otherwise)
-#~
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~if this_exists_but_not_that /tmp/1 /tmp/2; then
-#~	echo "yup"
-#~fi
-#~```
-#~
-#~---
+###this_exists_but_not_that( thisFile thatFile )
+###
+###-> does a (regular) file exist and another (regular) file not exist?  (returns 0 if true, 1 otherwise)
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if this_exists_but_not_that /tmp/1 /tmp/2; then
+###	echo "yup"
+###fi
+###```
+###
+###---
 
 function this_exists_but_not_that() {
         if [ ! $# -eq 2 ]; then
@@ -84,20 +81,20 @@ function this_exists_but_not_that() {
 	return 1
 }
 
-#~safe_move( fromFile toFile ) 
-#~
-#~-> A "do no harm" move function (returns 0 if the file was moved, 1 otherwise)
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~if safe_move /home/bob/user_list.txt /home/bob/user_list.txt.old; then
-#~	echo "yay. we moved the file"
-#~fi
-#~```
-#~
-#~---
+###safe_move( fromFile toFile ) 
+###
+###-> A "do no harm" move function (returns 0 if the file was moved, 1 otherwise)
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if safe_move /home/bob/user_list.txt /home/bob/user_list.txt.old; then
+###	echo "yay. we moved the file"
+###fi
+###```
+###
+###---
 
 function safe_move() {
         if [ ! $# -eq 2 ]; then
@@ -120,22 +117,22 @@ function safe_move() {
 	return 1
 }
 
-#~equivalent( file1, file2 )
-#~
-#~-> are the contents of two files equivalent?
-#~
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~if equivalent file1.txt file2.txt; then
-#~	echo "yay. we the contents of the two files match"
-#~fi
-#~
-#~```
-#~
-#~---
+###equivalent( file1, file2 )
+###
+###-> are the contents of two files equivalent?
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if equivalent file1.txt file2.txt; then
+###	echo "yay. we the contents of the two files match"
+###fi
+###
+###```
+###
+###---
 
 function equivalent() {
 	if [ ! $# -eq 2 ]; then
@@ -153,20 +150,20 @@ function equivalent() {
 	return 1
 }
 
-#~copy_in_dir( dir fromFile toFile )
-#~
-#~-> Copy a file from and to a dir (apply dir prefix to both from and to)
-#~
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~if copy_in_dir /home/bob/ test1.txt test2.txt; then
-#~	echo "yay. we copied a file within /home/bob/"
-#~fi
-#~```
-#~---
+###copy_in_dir( dir fromFile toFile )
+###
+###-> Copy a file from and to a dir (apply dir prefix to both from and to)
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if copy_in_dir /home/bob/ test1.txt test2.txt; then
+###	echo "yay. we copied a file within /home/bob/"
+###fi
+###```
+###---
 
 function copy_in_dir() {
 	if [ ! $# -eq 3 ]; then
@@ -190,19 +187,19 @@ function copy_in_dir() {
 	return 1
 }
 
-#~backup( file )
-#~
-#~-> backup a file (file.bak or file.bak.{timestamp} if it already exists)
-#~
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~backup /home/joe/test.xml
-#~
-#~```
-#~---
+###backup( file )
+###
+###-> backup a file (file.bak or file.bak.{timestamp} if it already exists)
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###backup /home/joe/test.xml
+###
+###```
+###---
 
 function backup() {
 	if [ ! $# -eq 1 ]; then 
@@ -221,23 +218,23 @@ function backup() {
 	fi
 }
 
-#~append( fromFile toFile )
-#~
-#~-> append the contents of one file to another (checks existence of from file and checks writable status of to file)
-#~-> returns 0 for success / 1 for fail
-#~
-#~Sample Script:
-#~
-#~```
-#~source "/usr/local/bashlilly/bashlilly.sh"
-#~
-#~if append /home/mark/from.txt /home/mark/to.txt; then
-#~	echo "successfully appended from.txt to to.txt"
-#~fi
-#~
-#~```
-#~
-#~---
+###append( fromFile toFile )
+###
+###-> append the contents of one file to another (checks existence of from file and checks writable status of to file)
+###-> returns 0 for success / 1 for fail
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if append /home/mark/from.txt /home/mark/to.txt; then
+###	echo "successfully appended from.txt to to.txt"
+###fi
+###
+###```
+###
+###---
 
 function append() {
 	if [ ! $# -eq 2 ]; then

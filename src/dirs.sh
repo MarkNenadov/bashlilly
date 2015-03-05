@@ -15,6 +15,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+###Directory Functions
+###-------------------
+###
+###dir_exists( dir )
+###
+###-> does a directory exist?
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###if dir_exists /home/mark/myfolder; then
+###	echo "yup. it is there"
+###fi
+###
+###```
+###----
+
 function dir_exists() {
         if [ ! $# -eq 1 ]; then
 		wrong_parameter_message 1 "the dir to check"
@@ -29,6 +48,20 @@ function dir_exists() {
 
 	return 1
 }
+
+###recreate_dir( dir )
+###
+###-> delete a dir and then make an empty one in its place
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###recreate_dir /home/jill
+###
+###```
+###---
 
 function recreate_dir() {
 	if [ ! $# -eq 1 ]; then

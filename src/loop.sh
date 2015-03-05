@@ -15,6 +15,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
+###Looping Functions
+###-----------------
+
+
+###loop( command, count )
+###
+###-> loop a command x times
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###loop whoami 7
+###```
+###
+###---
+
 function loop() {
 	if [ ! $# -eq 2 ]; then
 		wrong_parameter_message 2 "the command, loop count"
@@ -28,6 +46,21 @@ function loop() {
 		${cmd}
 	done
 }
+
+###loop_with_delay( command, count, delay )
+###
+###-> loop a command x times with a y second delay between
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+#### run whoami seven times with a five second delay between
+###loop whoami 7 5
+###```
+###
+###---
 
 function loop_with_delay() {
 	if [ ! $# -eq 3 ]; then
