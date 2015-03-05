@@ -88,6 +88,17 @@ backup /home/joe/test.xml
 
 ```
 ---
+remove_carriage_returns( file )
+
+-> remove junk windows carriage returns from a file (useful for bash scripts and many other cases)
+
+Sample Script
+
+```
+remove_carriage_returns /home/ed/from_windows.txt
+```
+
+---
 append( fromFile toFile )
 
 -> append the contents of one file to another (checks existence of from file and checks writable status of to file)

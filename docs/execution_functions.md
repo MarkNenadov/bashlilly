@@ -1,5 +1,5 @@
- Execution Functions
- -------------------
+Execution Functions
+-------------------
 
 run_where_available( cmd )
 

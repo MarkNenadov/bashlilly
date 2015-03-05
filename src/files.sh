@@ -218,6 +218,33 @@ function backup() {
 	fi
 }
 
+###remove_carriage_returns( file )
+###
+###-> remove junk windows carriage returns from a file (useful for bash scripts and many other cases)
+###
+###Sample Script
+###
+###```
+###remove_carriage_returns /home/ed/from_windows.txt
+###```
+###
+###---
+
+function remove_carriage_returns() {
+	if [ ! $# -eq 1 ]; then
+		wrong_parameter_message 1 "the file to remove carriage returns from"
+	fi
+
+	local workingFile="$1"
+
+	if exists "$workingFile"; then
+		cat ${workingFile} | tr -d "\r" > ${workingFile}
+		return 0
+	fi
+
+	return 1
+}
+
 ###append( fromFile toFile )
 ###
 ###-> append the contents of one file to another (checks existence of from file and checks writable status of to file)
