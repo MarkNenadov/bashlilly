@@ -28,6 +28,7 @@ mkdir $INSTALL_DIR
 wget "https://github.com/MarkNenadov/bashlilly/archive/master.zip"
 unzip master.zip
 
+cp bashlilly-master/bashlilly.sh $INSTALL_DIR
 cp bashlilly-master/README.md $INSTALL_DIR
 cp bashlilly-master/LICENSE $INSTALL_DIR
 
