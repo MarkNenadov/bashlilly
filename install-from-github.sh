@@ -16,6 +16,13 @@ fi
 
 INSTALL_DIR=$INSTALL_BASE/bashlilly/
 
+
+INSTALL_DIR=$INSTALL_BASE/bashlilly/
+
+if dir_exists $INSTALL_DIR; then
+        rm -rf $INSTALL_DIR
+fi
+
 mkdir $INSTALL_DIR
 
 wget "https://github.com/MarkNenadov/bashlilly/archive/master.zip"

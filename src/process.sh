@@ -16,11 +16,31 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
 
-BASHLILLY_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+### Process Functions
+### -------------------
+###
+###psgrep( value )
+###
+###-> grep your processes (a shortcut to ps-ef|grep "value"
+###
+###Sample Script:
+###
+###```
+###source "/usr/local/bashlilly/bashlilly.sh"
+###
+###psgrep "apache"
+###
+###```
+###---
 
-source "${BASHLILLY_DIR}/src/base.sh"
-source "${BASHLILLY_DIR}/src/loop.sh"
-source "${BASHLILLY_DIR}/src/exec.sh"
-source "${BASHLILLY_DIR}/src/dirs.sh"
-source "${BASHLILLY_DIR}/src/files.sh"
-source "${BASHLILLY_DIR}/src/process.sh"
+function psgrep() {
+        if [ ! $# -eq 1 ]; then
+                wrong_parameter_message 1 "the value to grep"
+                return 1
+        fi
+
+        local value="$1"
+
+	ps -ef|grep "$value"|grep -v "00:00:00 grep"
+}
+

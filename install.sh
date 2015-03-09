@@ -16,6 +16,10 @@ fi
 
 INSTALL_DIR=$INSTALL_BASE/bashlilly/
 
+if dir_exists $INSTALL_DIR; then
+	rm -rf $INSTALL_DIR
+fi
+
 mkdir $INSTALL_DIR
 
 cp $BASHLILLY_DIR/bashlilly.sh $INSTALL_DIR
