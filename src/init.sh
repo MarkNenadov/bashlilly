@@ -35,7 +35,7 @@
 ###---
 function make_init() {
 	if [ ! $# -eq 1 ]; then
-		wrong_parameter_message 1 "the script file"
+		wrong_parameter_message 2 "the script file, init script name"
                 return 1
         fi
 	local scriptFile="$1"
