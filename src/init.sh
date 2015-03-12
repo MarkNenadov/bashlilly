@@ -34,7 +34,7 @@
 ###
 ###---
 function make_init() {
-	if [ ! $# -eq 1 ]; then
+	if [ ! $# -eq 2 ]; then
 		wrong_parameter_message 2 "the script file, init script name"
                 return 1
         fi
