@@ -31,3 +31,8 @@ Reference Documentation
 -----------------------
 
 For reference documentation, please consult the Markdown files (*.md) in the "docs" folder.
+
+Other Notes
+-----------
+
+There is a Z Shell counterpart: https://github.com/MarkNenadov/zshlilly
