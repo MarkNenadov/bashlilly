@@ -1,11 +1,11 @@
-#Bashlilly Developer Style Guide
+# Bashlilly Developer Style Guide
 
-##General
+## General
 
 * Baselilly functions should be used wherever possible (ie. so use exists instead of -f and dir_exists itstead of -d)
 * Commands should not end with a ";" unless, for whatever reason, multiple commands are on one line
 
-##Conditional Logic
+## Conditional Logic
 
 * Simple if statements using bashlilly functions should be expressed like so:
 
@@ -23,9 +23,9 @@ if [ ! $# -eq 2 ]; then
 fi
 ```
 
-##Functions
+## Functions
 
-###Declaration
+### Declaration
 
 * Names should be lowercase with words separated by underscores
 * Always use an explicit "function" keyword
